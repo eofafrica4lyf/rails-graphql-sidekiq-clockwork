@@ -12,7 +12,7 @@ module Types
 
     field :get_weather, WeatherType, null: false do
       argument :city, String, required: true, prepare: ->(city, ctx){
-        return city.upcase()
+        return "690856"
       }
     end
       #Ex:- :null => false
