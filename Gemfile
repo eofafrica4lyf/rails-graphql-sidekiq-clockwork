@@ -42,3 +42,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'graphql'
 gem 'json'
 gem 'httparty'
+gem "interactor-rails", "~> 2.0"

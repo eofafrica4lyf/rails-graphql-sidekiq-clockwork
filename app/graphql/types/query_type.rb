@@ -11,16 +11,22 @@ module Types
     # end
 
     field :get_weather, WeatherType, null: false do
-      argument :city, String, required: true, prepare: ->(city, ctx){
-        return "690856"
-      }
+      argument :city, String, required: true
     end
       #Ex:- :null => false
       # description: "Get the weather for a location/city",
 
       
     def get_weather(city:)
-        {name: "city", city: city}
+      response = GetWeather.call(city: city)
+      response.weather ? response.weather : {
+        name: "",
+        weather: "",
+        lat: "",
+        lng: "",
+        sunrise: "",
+        sunset: ""
+      }
     end
 
   end
