@@ -3,7 +3,6 @@ class GetWeather
 
   def call
     city = City.find_by(name: context.city)
-    
     # fail if city is nil
     if city == nil
       context.fail!
