@@ -13,11 +13,8 @@ module Types
     end
 
     def weather_updates_subscription(email:, city:)
-      subscription = Subscription.new
-      subscription.email = email
-      subscription.city = city
-      result = subscription.save
-      result ? "Your subscription has been successfully made" : "Error! Subscription could not be made"
+      response = AddSubcription.call(email: email, city: city)
+      response.subscription_made ? "Your subscription has been successfully made" : "Error! Subscription could not be made"
     end
 
   end

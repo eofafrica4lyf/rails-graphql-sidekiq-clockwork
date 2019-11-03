@@ -2,9 +2,10 @@ class GetWeather
   include Interactor
 
   def call
-    city = City.find_by(name: context.city)
+    # check that city is among the list
+    response = ValidateCity.call(city: context.city)
     # fail if city is nil
-    if city == nil
+    if response.city_available == nil
       context.fail!
     end
 
