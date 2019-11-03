@@ -16,8 +16,6 @@ class AddSubcription
     end
 
     subscription = Subscription.new(email: context.email, city: context.city)
-    puts "subscription made========================="
-    puts subscription
     #Checks if record exists
     if !subscription.new_record?
       context.fail!

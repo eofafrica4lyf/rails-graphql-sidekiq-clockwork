@@ -28,6 +28,9 @@ gem 'graphql'
 gem 'json'
 gem 'httparty'
 gem "interactor-rails", "~> 2.0"
+gem "sidekiq"
+# get sinatra from source cos of dependency issues with older versions
+gem "sinatra", github: "sinatra/sinatra" 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
