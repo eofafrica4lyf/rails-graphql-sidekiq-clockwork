@@ -7,15 +7,24 @@ module Types
     #   "Hello World"
     # end
 
-    field :weather_updates_subscription, String, null: false do
+    field :subscribe_for_updates, String, null: false do
       argument :email, String, required: true
       argument :city, String, required: true
     end
 
-    def weather_updates_subscription(email:, city:)
+    def subscribe_for_updates(email:, city:)
       response = AddSubcription.call(email: email, city: city)
-      response.subscription_made ? "Your subscription has been successfully made" : "Error! Subscription could not be made"
+      response.subscription_made ? "Added successfully" : "Error! Subscription could not be made"
     end
 
+    field :remove_subscriptions, String, null: false do
+      argument :email, String, required: true
+      argument :city, String, required: true
+    end
+
+    def remove_subscriptions(email:, city: )
+      response = RemoveSubscription.call(email: email, city: city)
+      response.subscription_removed ? "Removed successfully" : "Error!"
+    end
   end
 end
