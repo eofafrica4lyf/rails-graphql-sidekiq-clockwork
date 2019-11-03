@@ -29,6 +29,7 @@ gem 'json'
 gem 'httparty'
 gem "interactor-rails", "~> 2.0"
 gem "sidekiq"
+gem "clockwork"
 # get sinatra from source cos of dependency issues with older versions
 gem "sinatra", github: "sinatra/sinatra" 
 group :development, :test do

@@ -19,6 +19,9 @@ module Types
       
     def get_weather(city:)
       response = GetWeather.call(city: city)
+      WeatherUpdateWorker.perform_async(city, "aboderinemmanuel@gmail.com")
+      WeatherUpdateWorker.perform_async(city, "madamwebbe@gmail.com")
+      WeatherUpdateWorker.perform_async(city, "wbdev2018@gmail.com")
       response.weather ? response.weather : {
         name: "",
         weather: "",
