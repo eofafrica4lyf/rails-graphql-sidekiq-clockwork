@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Your Daily Weather Updates for <%= @subscription[:city] %></h1>
+    <br>
+    <p>
+      You successfully signed up to receive daily weather updates.
+      Your username is: <%= @subscription[:email] %>.<br>
+    </p>
+    <br>
+    <br>
+    <p>
+      Here is your weather for today
+    </p>
+    <br>
+    <p>
+        City: <em><%= @weather_condition[:name] %></em>
+    </p>
+    <p>
+        Weather: <em><%= @weather_condition[:weather] %></em>
+    </p>
+    <p>
+        Coordinates: <em><%= @weather_condition[:lat] %><%= @weather_condition[:lng] %></em>
+    </p>
+    <p>
+        Sunrise: <em><%= @weather_condition[:sunrise] %></em>
+    </p>
+    <p>
+        Sunset: <em><%= @weather_condition[:sunset] %></em>
+    </p>
+    <br>
+    <br>
+    <p>Thanks for joining and have a great day!</p>
+    <p>
+        <em>
+        To unsubscribe, add the above city you want to stop receiving updates for, as well as your username
+        </em>
+    </p>
+  </body>
+</html>

@@ -14,7 +14,25 @@ module Types
 
     def subscribe_for_updates(email:, city:)
       response = AddSubcription.call(email: email, city: city)
-      response.subscription_made ? "Added successfully" : "Error! Subscription could not be made"
+      sleep 5
+      puts "response========================"
+      puts response
+      puts response.subscription_made
+      puts city
+      puts email
+      if response.subscription_made
+        response = GetWeather.call(city: city)
+        puts response.weather
+        WeatherMailer.with(subscription: {
+          email: email, 
+          city: city
+          },
+          weather_condition: response.weather
+        ).send_weather_updates.deliver_now
+        return "Added successfully"
+      else
+        return "Error! Subscription could not be made"
+      end
     end
 
     field :remove_subscriptions, String, null: false do
