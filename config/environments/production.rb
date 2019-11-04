@@ -117,4 +117,14 @@ Rails.application.configure do
     domain: "smtp.gmail.com",
     openssl_verify_mode: "none",
   }
+
+  # config.action_mailer.smtp_settings = {
+  #   user_name: "madamwebbe@gmail.com",
+  #   password: "Lukevader17.",
+  #   domain: 'daily-weather-update.herokuapp.com',
+  #   address: 'smtp.sendgrid.net',
+  #   port: 587,
+  #   authentication: :plain,
+  #   enable_starttls_auto: true
+  # }
 end
