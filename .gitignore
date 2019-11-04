@@ -27,3 +27,4 @@ app/.DS_Store
 /config/application.yml
 
 dump.rdb
+db/migrate/20191101043003_add_city_to_subscriptions.rb
