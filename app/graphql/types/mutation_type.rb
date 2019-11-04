@@ -14,11 +14,14 @@ module Types
 
     def subscribe_for_updates(email:, city:)
       response = AddSubcription.call(email: email, city: city)
-
+      puts "response.subscription_made"
+      puts response.subscription_made
       if response.subscription_made
+        puts "Positive"
         SendWeatherUpdate.call(email: email, city: city)
         return "Added successfully"
       else
+        puts "Positive"
         return "Error! Subscription could not be made"
       end
     end

@@ -17,3 +17,10 @@ cities.each do |city|
     country: city['country']
   )
 end
+
+
+City.limit(10).each do |city|
+    city.attributes()
+end
+
+City.find(1).attributes.except('created_at', 'updated_at', 'id')
