@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# cities = JSON.parse(File.read('app/assets/city.list.json'))
+cities = JSON.parse(File.read('app/assets/city.list.json'))
 
-# cities.each do |city|
-#   City.create!(
-#     name: city['name'],
-#     city_id: city['id'],
-#     lat: city['coord']['lat'],
-#     lon: city['coord']['lon'],
-#     country: city['country']
-#   )
-# end
+cities.each do |city|
+  City.create!(
+    name: city['name'],
+    city_id: city['id'],
+    lat: city['coord']['lat'],
+    lon: city['coord']['lon'],
+    country: city['country']
+  )
+end
