@@ -25,3 +25,5 @@ app/.DS_Store
 
 # Ignore application configuration
 /config/application.yml
+
+dump.rdb
