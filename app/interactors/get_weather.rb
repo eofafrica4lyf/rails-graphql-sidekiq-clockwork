@@ -8,11 +8,13 @@ class GetWeather
     if response.city_available == nil
       context.fail!
     end
-
+    puts "response.city_available*******************"
+    puts response.city_available
     response = HTTParty.get("http://api.openweathermap.org/data/2.5/forecast?q=#{context.city}&APPID=48c84385b6a0f798c787a61ec4005a85&units=metric")
     # puts response.body, response.code, response.message, response.headers.inspect
     #wih = weather_info_holder 
-
+    puts "response==================="
+    puts response
     response = JSON.parse(response.body)
 
     wih = response["list"][-1]
