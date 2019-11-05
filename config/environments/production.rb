@@ -102,29 +102,39 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'daily-weather-update.herokuapp.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: "wbdev2018@gmail.com",
-    password: "wbdev2019", 
-    domain: "smtp.gmail.com",
-    openssl_verify_mode: "none",
-  }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.perform_caching = false
+  # config.action_mailer.default_url_options = { host: 'daily-weather-update.herokuapp.com'}
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   address: "smtp.gmail.com",
+  #   port: 587,
+  #   authentication: "plain",
+  #   enable_starttls_auto: true,
+  #   user_name: "",
+  #   password: "", 
+  #   domain: "smtp.gmail.com",
+  #   openssl_verify_mode: "none",
+  # }
 
   # config.action_mailer.smtp_settings = {
-  #   user_name: "madamwebbe@gmail.com",
-  #   password: "Lukevader17.",
+  #   user_name: "",
+  #   password: "",
   #   domain: 'daily-weather-update.herokuapp.com',
   #   address: 'smtp.sendgrid.net',
   #   port: 587,
   #   authentication: :plain,
   #   enable_starttls_auto: true
   # }
+  config.action_mailer.smtp_settings = {
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'daily-weather-update.herokuapp.com',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  config.action_cable.allowed_request_origins = ['https://daily-weather-update.herokuapp.com']
 end
