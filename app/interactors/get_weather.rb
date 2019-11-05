@@ -20,8 +20,8 @@ class GetWeather
     wih = response["list"][-1]
 
     prepared_weather_statement = "Weather: #{wih['weather'][0]['main']}, Temperature: #{wih['main']['temp']}C, Humidity: #{wih['main']['humidity']}%"
-    sunrise = Time.at(response['city']['sunset']).strftime("%B %e, %Y at %I:%M %p")
-    sunset = Time.at(response['city']['sunrise']).strftime("%B %e, %Y at %I:%M %p")
+    sunrise = Time.at(response['city']['sunset']).utc.strftime("%B %e, %Y at %I:%M %p")
+    sunset = Time.at(response['city']['sunrise']).utc.strftime("%B %e, %Y at %I:%M %p")
 
     context.weather = OpenStruct.new(
       name: response['city']['name'],
