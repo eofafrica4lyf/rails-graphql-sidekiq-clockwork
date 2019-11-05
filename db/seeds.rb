@@ -19,8 +19,8 @@ cities.each do |city|
 end
 
 
-City.limit(10).each do |city|
-    city.attributes()
-end
+# City.limit(10).each do |city|
+#     city.attributes()
+# end
 
-City.find(1).attributes.except('created_at', 'updated_at', 'id')
+# City.find(1).attributes.except('created_at', 'updated_at', 'id')
