@@ -1,5 +1,5 @@
 class WeatherMailer < ApplicationMailer
-    default from: "Buycoins Live Weather Updates"
+    default from: "emmanuela@buycoins.africa"
 
     def send_weather_updates
         @subscription = params[:subscription]
