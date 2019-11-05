@@ -5,9 +5,7 @@ class GetWeather
     # check that city is among the list
     response = ValidateCity.call(city: context.city)
     # fail if city is nil
-    if response.city_available == nil
-      context.fail!
-    end
+    context.fail! if response.city_available == nil
     # puts "response.city_available*******************"
     # puts response.city_available
     response = HTTParty.get("http://api.openweathermap.org/data/2.5/forecast?q=#{context.city}&APPID=48c84385b6a0f798c787a61ec4005a85&units=metric")
