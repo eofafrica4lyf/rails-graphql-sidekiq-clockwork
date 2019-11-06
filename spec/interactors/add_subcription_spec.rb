@@ -9,7 +9,7 @@ RSpec.describe AddSubcription, type: :interactor do
   describe '.call' do
     context "when called with a valid city and email" do
 
-      it "has no records initially, when called, adds a record to the database" do
+      it "adds a record to the database if no record already exist" do
         # Subscription.destroy_all
         interactor = AddSubcription.call(email: "aboderinemmanuel@gmail.com", city: "London")
         # puts interactor.subscription_made
@@ -18,7 +18,7 @@ RSpec.describe AddSubcription, type: :interactor do
       end
       # puts "Subscription.count"
       # puts Subscription.count
-      it "has an existing record of the email and city" do
+      it "fails if an existing record of the subscription exists" do
         interactor = AddSubcription.call(email: "aboderinemmanuel@gmail.com", city: "London")
         interactor = AddSubcription.call(email: "aboderinemmanuel@gmail.com", city: "London")
         expect(interactor).to be_a_failure
@@ -26,7 +26,7 @@ RSpec.describe AddSubcription, type: :interactor do
       end
 
     end
-    context "when called with an invalid city and/or email" do
+    context "when called with an invalid city" do
 
       it "it fails to add a record to the database" do
         # Subscription.destroy_all
